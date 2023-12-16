@@ -89,7 +89,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" id="password">
                 @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-6">
                     @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
@@ -98,7 +98,7 @@
             </div>
 
             <div class="row">
-                <div class="form-group">
+                <div class="form-group col-md-2">
                     @Html.LabelFor(model => model.Qr, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-6">
                         <div class="checkbox">
@@ -109,7 +109,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-md-2">
                     @Html.LabelFor(model => model.Active, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-6">
                         <div class="checkbox">
@@ -170,16 +170,16 @@
                 })
 
                 if (!document.getElementById('Auth').checked) {
-                    $("#Password").hide();
+                    $("#password").hide();
                 }
 
                 $("#Auth").change(function () {
                     console.log($(this).val());
                     if (!document.getElementById('Auth').checked) {
-                        $("#Password").hide();
+                        $("#password").hide();
                         console.log("0");
                     } else {
-                        $("#Password").show();
+                        $("#password").show();
                         console.log("1");
                     }
                 })
