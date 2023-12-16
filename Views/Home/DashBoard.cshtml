@@ -1,0 +1,337 @@
+﻿@model IEnumerable<Shortly.Models.StatsModels>
+@{
+    ViewBag.Title = "DashBoard";
+}
+
+<nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+                <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Dashboard</a></li>
+                @*<li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard</li>*@
+            </ol>
+            <h6 class="font-weight-bolder mb-0">Dashboard</h6>
+        </nav>
+        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+            <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+                <div class="input-group">
+                    @*<span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control" placeholder="Type here...">*@
+                </div>
+            </div>
+            <ul class="navbar-nav  justify-content-end">
+
+                <li class="nav-item d-flex align-items-center">
+                    <a href="/Account/LogOff" class="nav-link text-body font-weight-bold px-0">
+                        <i class="fa fa-user me-sm-1"></i>
+                        <span class="d-sm-inline d-none">Logout</span>
+                    </a>
+                </li>
+                <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                    <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                        <div class="sidenav-toggler-inner">
+                            <i class="sidenav-toggler-line"></i>
+                            <i class="sidenav-toggler-line"></i>
+                            <i class="sidenav-toggler-line"></i>
+                        </div>
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid py-4 ms-3">
+    <div class="row">
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+                <div class="card-body p-3">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="numbers">
+                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Your Urls</p>
+                                <h5 class="font-weight-bolder mb-0">
+                                    @ViewData["your_urls"]
+                                    @*<span class="text-success text-sm font-weight-bolder">+55%</span>*@
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="col-4 text-end">
+                            <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+                <div class="card-body p-3">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="numbers">
+                                <p class="text-sm mb-0 text-capitalize font-weight-bold">QR codes</p>
+                                <h5 class="font-weight-bolder mb-0">
+                                    @ViewData["qr_codes"]
+                                    @*<span class="text-success text-sm font-weight-bolder">+3%</span>*@
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="col-4 text-end">
+                            <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                <i class="ni ni-delivery-fast text-lg opacity-10" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+                <div class="card-body p-3">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="numbers">
+                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Pending Requests</p>
+                                <h5 class="font-weight-bolder mb-0">
+                                    @ViewData["pending_requests"]
+                                    @*<span class="text-danger text-sm font-weight-bolder">-2%</span>*@
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="col-4 text-end">
+                            <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                <i class="ni ni-lock-circle-open text-lg opacity-10" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6">
+            <div class="card">
+                <div class="card-body p-3">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="numbers">
+                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Clicks/Scans</p>
+                                <h5 class="font-weight-bolder mb-0">
+                                    @ViewData["total_clicks"]
+                                    @*<span class="text-success text-sm font-weight-bolder">+5%</span>*@
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="col-4 text-end">
+                            <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                <i class="ni ni-collection text-lg opacity-10" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Cards -->
+</div>
+    </div>
+    </div>
+    </div>
+<div class="col-lg-8">
+    <div class="card z-index-2">
+        <div class="card-header pb-0">
+            <h5 class="font-weight-bolder">Clicks + Scans</h5>
+        </div>
+        <div class="card-body p-3">
+            <div class="">
+                @*<canvas id="chart-line" class="chart-canvas" height="300"></canvas>*@
+                <canvas id="myChart" ></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+<div class="row mt-4">
+    <div class="col-lg-6 mb-lg-0 mb-4">
+        <div class="card">
+            <div class="card-body p-3">
+                <div class="row">
+
+                    <div id="chartdiv" style="width: 100%; height: 400px;"></div>
+
+                    <!-- <div class="col-lg-5 ms-auto text-center mt-5 mt-lg-0"> -->
+                    <!-- <div class="bg-gradient-primary border-radius-lg h-100"> -->
+                    <!-- <img src="../assets/img/shapes/waves-white.svg" class="position-absolute h-100 w-50 top-0 d-lg-block d-none" alt="waves"> -->
+                    <!-- <div class="position-relative d-flex align-items-center justify-content-center h-100"> -->
+                    <!-- <img class="w-100 position-relative z-index-2 pt-4" src="../assets/img/illustrations/rocket-white.png" alt="rocket"> -->
+                    <!-- </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-6 mb-md-0 mb-4">
+        <div class="card">
+            <div class="card-header pb-0">
+                <div class="row">
+                    <div class="col-lg-6 col-7">
+                        <h5 class="font-weight-bolder">Clicks + Scans by Location</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body px-0 pb-2">
+                <div class="table-responsive">
+                    <table class="table align-items-center mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Browser Type</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Location</th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Device Type</th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @item.BrowserType
+                                    </td>
+                                    <td>
+                                        @item.Location
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        @item.DeviceType
+                                    </td>
+                                    <td class="align-middle">
+                                        @item.HitAt.Date
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+    </div>
+
+@*<div class="row my-4">
+
+    </div>*@
+    </div>
+@section Scripts {
+
+    <script>
+        am4core.ready(function () {
+            am4core.useTheme(am4themes_animated);
+            var chart = am4core.create("chartdiv", am4maps.MapChart);
+            chart.geodata = am4geodata_worldLow;
+            chart.projection = new am4maps.projections.Miller();
+
+            var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+            polygonSeries.useGeodata = true;
+
+            // Configure series
+            var polygonTemplate = polygonSeries.mapPolygons.template;
+            polygonTemplate.tooltipText = "{name}";
+            polygonTemplate.fill = am4core.color("#74B266"); // color of the countries
+
+            // Create hover state and set alternative fill color
+            var hs = polygonTemplate.states.create("hover");
+            hs.properties.fill = am4core.color("#367B25"); // color when hovered
+
+            // Add some data for demo purposes
+            polygonSeries.data = [{
+                "id": "US",
+                "name": "United States",
+                "value": 100,
+                "fill": am4core.color("#F05C5C") // color of a specific country
+            }];
+        });</script>
+    <script>
+        var win = navigator.platform.indexOf('Win') > -1;
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+            var options = {
+                damping: '0.5'
+            }
+            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+    </script>
+    <script>
+        // Sample data
+
+        label = [];
+        datas = [];
+
+        url_data = "";
+
+        $.ajax({
+            url: "/getClicks",
+            type: "GET",
+            dataType: "json",
+            contentType:"application/json; charset=utf-8",
+            success: function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    label[i] = data[i].url.url;
+                    datas[i] = data[i].count;
+                }
+
+                console.log(datas);
+                console.log(label);
+
+                var data = {
+                    labels: label,
+                    datasets: [{
+                        label: 'Total Clicks',
+                        data: datas, // Replace this array with your actual data
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.7)',
+                            'rgba(54, 162, 235, 0.7)',
+                            'rgba(255, 206, 86, 0.7)',
+                            'rgba(75, 192, 192, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                };
+
+                console.log("****************");
+                console.log(data);
+
+                // Chart configuration
+                var config = {
+                    type: 'bar',
+                    data: data,
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                };
+
+                // Create the chart
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var myChart = new Chart(ctx, config);
+
+                @*location.reload();*@
+            },
+            error: function (xhr, status, error) {
+
+            }
+        });
+
+
+       
+    </script>
+}

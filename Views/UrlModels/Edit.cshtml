@@ -1,0 +1,205 @@
+﻿@model Shortly.Models.UrlModels
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+                <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Dashboard</a></li>
+                <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Url</li>
+                <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Edit Url</li>
+            </ol>
+            <h6 class="font-weight-bolder mb-0">Edit Url</h6>
+        </nav>
+        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+            <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+                <div class="input-group">
+                    @*<span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control" placeholder="Type here...">*@
+                </div>
+            </div>
+            <ul class="navbar-nav  justify-content-end">
+
+                <li class="nav-item d-flex align-items-center">
+                    <a href="/Account/LogOff" class="nav-link text-body font-weight-bold px-0">
+                        <i class="fa fa-user me-sm-1"></i>
+                        <span class="d-sm-inline d-none">Logout</span>
+                    </a>
+                </li>
+                <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                    <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                        <div class="sidenav-toggler-inner">
+                            <i class="sidenav-toggler-line"></i>
+                            <i class="sidenav-toggler-line"></i>
+                            <i class="sidenav-toggler-line"></i>
+                        </div>
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container py-2">
+
+    <div class="row mt-3 mb-4">
+        <div class="col-2">
+            @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+
+    @using (Html.BeginForm(new { @class = "col-md-8 mx-auto" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Edit Link</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.RedirectTo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.RedirectTo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RedirectTo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.BackHalf, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.BackHalf, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.BackHalf, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Auth, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Auth)
+                        @Html.ValidationMessageFor(model => model.Auth, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Qr, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-6">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.Qr)
+                            @Html.ValidationMessageFor(model => model.Qr, "", new { @class = "text-danger" })
+                        </div>
+                        <div id="qrcode"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Active, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-6">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.Active)
+                            @Html.ValidationMessageFor(model => model.Active, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                    @Html.LabelFor(model => model.User_id, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.User_id, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.User_id, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+        }
+
+<div class="row mt-5">
+    <div class="col-4">
+        <a href="/UrlModels/Delete/@Model.Id" class="btn btn-danger">Delete</a>
+    </div>
+</div>
+
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        <script>
+
+            $(document).ready(function () {
+                @*document.getElementById('Auth').checked = true;
+                document.getElementById('Active').checked = true;*@
+
+                $("#qrcode").hide();
+
+                if (document.getElementById('Qr').checked) {
+                    $("#qrcode").show();
+                }
+
+                $("#Qr").change(function () {
+                    console.log($(this).val());
+                    if (!document.getElementById('Qr').checked) {
+                        $("#qrcode").hide();
+                        console.log("0");
+                    } else {
+                        $("#qrcode").show();
+                        console.log("1");
+                    }
+                })
+
+                if (!document.getElementById('Auth').checked) {
+                    $("#Password").hide();
+                }
+
+                $("#Auth").change(function () {
+                    console.log($(this).val());
+                    if (!document.getElementById('Auth').checked) {
+                        $("#Password").hide();
+                        console.log("0");
+                    } else {
+                        $("#Password").show();
+                        console.log("1");
+                    }
+                })
+            });
+
+            function generateQRCode(size = 200) {
+                // Google Charts API URL for QR Code
+                var apiUrl = 'https://chart.googleapis.com/chart?chs=' + size + 'x' + size + '&cht=qr&chl=' + encodeURIComponent('@ViewData["qr_url"]');
+
+                // Create an image element
+                var img = document.createElement('img');
+
+                // Set the source to the Google Charts API URL
+                img.src = apiUrl;
+
+                // Append the image to the specified container
+                document.getElementById("qrcode").appendChild(img);
+            }
+
+            generateQRCode();
+
+        </script>
+    }

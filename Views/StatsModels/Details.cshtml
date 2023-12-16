@@ -1,0 +1,66 @@
+﻿@model Shortly.Models.StatsModels
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>StatsModels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BrowserType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BrowserType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IpAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IpAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isQR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isQR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HitAt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HitAt)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,268 @@
+﻿@model IEnumerable<Shortly.Models.UrlModels>
+@{
+    ViewBag.Title = "Index";
+}
+
+<nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+                <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Dashboard</a></li>
+                <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Urls</li>
+            </ol>
+            <h6 class="font-weight-bolder mb-0">Urls</h6>
+        </nav>
+        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+            <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+                <div class="input-group">
+                    @*<span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control" placeholder="Type here...">*@
+                </div>
+            </div>
+            <ul class="navbar-nav  justify-content-end">
+
+                <li class="nav-item d-flex align-items-center">
+                    <a href="/Account/LogOff" class="nav-link text-body font-weight-bold px-0">
+                        <i class="fa fa-user me-sm-1"></i>
+                        <span class="d-sm-inline d-none">Logout</span>
+                    </a>
+                </li>
+                <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                    <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                        <div class="sidenav-toggler-inner">
+                            <i class="sidenav-toggler-line"></i>
+                            <i class="sidenav-toggler-line"></i>
+                            <i class="sidenav-toggler-line"></i>
+                        </div>
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RedirectTo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BackHalf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RedirectTo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BackHalf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Active)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Request Access", "UrlRequestAccess", new { id = item.Id }) |
+                    <a href="#">Stats</a>
+                </td>
+            </tr>
+        }
+
+    </table>*@
+
+<div class="container py-2">
+    <div class="row mt-3">
+        <div class="col-sm-4 col-6 ">
+            <!-- Button trigger modal -->
+            <div class="row">
+                <a class="btn bg-gradient-primary" href="/UrlModels/Create">
+                    @*data-bs-toggle="modal" data-bs-target="#exampleModal"*@
+                    Create New a Link
+                </a>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <!-- <h5 class="modal-title" id="exampleModalLabel">Create a Link</h5>  -->
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-bod">
+                            <section>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="m-2 mx-auto d-flex justify-content-center flex-column">
+                                            <h3 class="text-center">Create a Link</h3>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                    </div>
+                                                    <div class="mb-4">
+                                                        <label>Destination</label>
+                                                        <div class="input-group">
+                                                            @*<input type="url" class="form-control" placeholder="">*@
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-4">
+                                                        <label>Title</label>
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-4">
+                                                        <label>Custom Back half</label>
+                                                        <div class="input-group">
+                                                            <input type="url" class="form-control" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <label>Authentication</label>
+                                                            <div class="form-check form-switch mb-4">
+                                                                <input class="form-check-input" type="checkbox" id="authSwitchCheck" checked="">
+                                                                <label class="form-check-label" for="authSwitchCheck">Enable Password Protection</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-4">
+                                                        <label>Password</label>
+                                                        <div class="input-group">
+                                                            <input type="password" class="form-control" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="form-check mb-4">
+                                                                <input class="form-check-input" type="checkbox" id="randomLinkCheck">
+                                                                <label class="form-check-label" for="randomLinkCheck">Generate Random Link</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <label>QR Code(Optional)</label>
+                                                            <div class="form-check form-switch mb-4">
+                                                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked="">
+                                                                <label class="form-check-label" for="flexSwitchCheckDefault">Generate a QR Code to share anywhere people can scan it</label>
+                                                            </div>
+                                                        </div>
+                                                        <!-- <div class="col-md-12">
+                                                          <button type="submit" class="btn bg-gradient-dark w-100">Generate</button>
+                                                        </div> -->
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn bg-gradient-dark" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn bg-gradient-primary">Generate</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Table -->
+        <div class="col-lg-12 col-md-6 mb-md-0 mb-4">
+            <div class="card">
+                <div class="card-header pb-0">
+                    <div class="row">
+                        <div class="col-lg-6 col-7">
+                            <h5 class="font-weight-bolder">Your Urls</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body px-0 pb-2">
+                    <div class="table-responsive">
+                        <table class="table align-items-center mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Redirect TO</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Back Half</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @item.RedirectTo
+                                        </td>
+                                        <td>
+                                            <a href="@{ Write(string.Format("{0}://{1}", Request.Url.Scheme, Request.Url.Host) +":44306" + "/r/" + item.BackHalf); } ">@item.BackHalf</a>
+                                        </td>
+                                        <td class="align-middle text-center text-sm">
+                                            <div class="form-check form-switch ps-0">
+                                                @if (item.Active)
+                                                {
+                                                    <input class="form-check-input ms-auto mt-1" onclick="changeStatus(this.id)" type="checkbox" checked id="@item.Id">
+                                                }
+                                                else
+                                                {
+                                                    <input class="form-check-input ms-auto mt-1" onclick="changeStatus(this.id)" type="checkbox" id="@item.Id">
+                                                }
+
+                                                @*<label class="form-check-label ms-2" for="flexSwitchCheckDefault"></label>*@
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="d-flex justify-content-center">
+                                                @Html.ActionLink("Request Access", "UrlRequestAccess", new { id = item.Id }, new { @class = "btn btn-primary btn-sm me-2" })
+                                                @*<a href="" class="btn btn-primary btn-sm me-2">Request Access</a>*@
+                                                <!-- <button class="btn btn-primary btn-sm me-2">Request Access</button> -->
+                                                @*<a href="stats.html" class="btn btn-info btn-sm me-2">Stats</a>*@
+                                                <!-- <button class="btn btn-info btn-sm me-2">Stats</button> -->
+                                                @Html.ActionLink("Edit", "Edit", new { id = item.Id } , new { @class= "btn btn-info btn-sm me-2" })
+                                                @*<a href="stats.html" class="btn btn-success btn-sm me-2">Edit</a>*@
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Table -->
+        <!-- End Table -->
+
+
+    </div>
+
+    <script>
+        function changeStatus(id) {
+            $.ajax({
+                url: "/ChangeUrlStatus",
+            type: "POST",
+            data: {
+                id: id,
+            },
+            success: function (data) {
+                console.log(data);
+                location.reload();
+            },
+            error: function (xhr,status,error) {
+
+            }
+        });
+        }
+    </script>
